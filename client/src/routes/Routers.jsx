@@ -5,23 +5,25 @@ import Login from "../pages/Login"
 import Signup from "../pages/Signup"
 import Profile from "../pages/Profile"
 import Menu from "../pages/Menu"
+import ProductById from "../pages/ProductById"
 import { Routes, Route } from "react-router-dom"
 
 
 const Routers = () => {
     return (
 
-        
+
         <Routes>
             <Route path="/home" element={<Home />} />
-            <Route path="/aboutus" element={<AboutUs/>}/>
-            <Route path="/contact" element={<Contact/>}/>
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/profile" element={<Profile/>} />
-            <Route path="/menu" element={<Menu/>}/>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/products/:id" element={<ProductById />} />
         </Routes>
     )
 }
 
-export default Routers;
+export default Routers; 
