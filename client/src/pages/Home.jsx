@@ -23,7 +23,7 @@ const Home = () => {
                                     </h1>
                                     <p className="text_para">Discover the Essence of Flavors, the Art of Presentation, and the Joy of Cooking.
                                         Explore Our Collection of Mouthwatering Recipes and Indulge Your Taste Buds in a World of Gastronomic Delights.</p>
-                                    <Link to={"/"}>
+                                    <Link to={"/menu"}>
                                         <button className="btn">Search</button>
                                     </Link>
 
