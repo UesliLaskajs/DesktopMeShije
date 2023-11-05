@@ -20,6 +20,10 @@ const ProductSchema=new mongoose.Schema({
     food_video:{
         type:String,
         required:[true,"Video Url is Required"]
+    },
+    price:{
+        type:Number,
+        required:[true,"Add a Number"]
     }
 })
 

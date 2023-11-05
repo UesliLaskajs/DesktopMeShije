@@ -8,7 +8,8 @@ const FoodForm = () => {
     cuisine: "",
     instructions: "",
     food_photo: "",
-    food_video: ""
+    food_video: "",
+    price:""
   });
 
   const [errors, setErrors] = useState({});
@@ -34,7 +35,6 @@ const FoodForm = () => {
       ...formData,
       [name]: value
     });
-    // Clear the validation error when the user starts typing again
     setErrors({
       ...errors,
       [name]: null
@@ -124,7 +124,21 @@ const FoodForm = () => {
             />
             {errors.food_video && <p className="text-red-500">{errors.food_video}</p>}
           </div>
-
+          <div className="mb-4">
+            <label htmlFor="price" className="block text-sm font-medium text-gray-600">
+              Price:
+            </label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value={formData.price}
+              onChange={handleChange}
+              required
+              className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300"
+            />
+            {errors.price && <p className="text-red-500">{errors.price}</p>}
+          </div>
        
             <button
               type="submit"
