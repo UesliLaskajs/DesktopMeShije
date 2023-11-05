@@ -21,7 +21,7 @@ function Contact() {
                         </div>
                         <ContactForm />
                         <div className="bg-gray-200 p-4 text-gray-700 text-center">
-                            Enxhi Kaci, Uesli Laskajs, Katerina Taci
+                            Enxhi Kaci, Uesli Laska, Katerina Taci
                         </div>
                     </div>
                 </div>
@@ -62,50 +62,14 @@ function ContactForm() {
             </p>
             <form>
                 <form>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-                            Name
-                        </label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="name"
-                            type="text"
-                            placeholder="Your Name"
-                        />
-                    </div>
-
-                    <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-                            Email
-                        </label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="email"
-                            type="email"
-                            placeholder="Your Email"
-                        />
-                    </div>
-
-                    <div className="mb-6">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
-                            Message
-                        </label>
-                        <textarea
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="message"
-                            placeholder="Your Message"
-                            rows="4"
-                        />
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                        <button
-                            className="bg-teal-700 hover-bg-teal-900 text-white font-bold py-2 px-4 rounded focus-outline-none focus-shadow-outline"
-                            type="submit"
-                        >
-                            Send
-                        </button>
-                    </div>
+      
+                    <iframe
+                    title="Google Forms Survey"
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScPeQaz6R3Lw3Q77QMy7cngqKUnCyOhmIhgIxf9Z5P69yqvxg/viewform?embedded=true"
+                    width="100%"
+                    height="2533" // You can adjust the height as needed
+                    frameBorder="0"
+                ></iframe>
                 </form>
             </form>
         </div>
