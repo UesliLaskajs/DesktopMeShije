@@ -3,24 +3,35 @@ import axios from "axios";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import { Link } from "react-router-dom";
+import SearchBar from "../components/Search/SearchBar";
 
 const Menu = () => {
   const [food, setFood] = useState([]);
 
+  const handleSearch = (filteredData) => {
+    setFood(filteredData);
+  };
+
   useEffect(() => {
     axios.get("http://localhost:3000/products")
       .then((res) => {
-        console.log(res.data);
-        setFood(res.data);
+
+        const shuffledProducts = res.data.sort(() => 0.5 - Math.random());
+
+
+        const randomProducts = shuffledProducts.slice(0, 16);
+
+        setFood(randomProducts);
       })
       .catch((err) => {
         console.log("Error getting data:", err);
       });
-  }, []); 
+  }, []);
 
   return (
     <>
       <Navbar />
+      <SearchBar onSearch={handleSearch} />
       <section className="p-8">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

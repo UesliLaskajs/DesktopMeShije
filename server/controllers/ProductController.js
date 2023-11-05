@@ -1,15 +1,22 @@
 const Product = require("../models/ProductModel")
-
 module.exports.getAllProducts = (req, res) => {
-    Product.find()
-        .then((allUsers) => {
-            res.json(allUsers);
-        })
-        .catch((err) => {
-            res.status(400).json(err);
-        })
+    const { search } = req.query;
+    let query = {};
+    if (search) {
+      query = {
+        food_name: { $regex: new RegExp(search, "i") } // Case-insensitive search
+      };
+    }
+  
+    Product.find(query)
+      .then((products) => {
+        res.json(products);
+      })
+      .catch((err) => {
+        res.status(400).json(err);
+      });
+  };
 
-}
 
 module.exports.getOneProduct = (req, res) => {
     Product.findOne({ _id: req.params.id })
@@ -54,3 +61,5 @@ module.exports.deleteProduct = (req, res) => {
         })
 
 }
+
+////

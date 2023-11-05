@@ -1,7 +1,6 @@
 import  { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-// import SearchBar from "../components/Search/SearchBar";
 const ProductById = () => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
@@ -24,7 +23,6 @@ const ProductById = () => {
    
     <div className="min-h-screen bg-gray-100 flex justify-center items-center">
       <section className="p-8 bg-white shadow-md rounded-lg h-full w-full max-w-screen-xl">
-      {/* <SearchBar/> */}
         <div className="container mx-auto h-full">
           <div className="flex justify-between items-center h-full">
             <div className="links">

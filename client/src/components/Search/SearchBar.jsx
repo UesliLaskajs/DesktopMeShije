@@ -1,33 +1,40 @@
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import  { useState } from 'react';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 
-// const ProductsByName = ({ food_name }) => {
-//   const [products, setProducts] = useState([]);
+const SearchBar = ({ onSearch }) => {
+  const [searchTerm, setSearchTerm] = useState('');
 
-//   useEffect(() => {
-//     // Fetch all products from the API
-//     axios.get("http://localhost:3000/products")
-//       .then((res) => {
-//         console.log(res.data);
-//         // Filter products based on the provided food_name prop
-//         const filteredProducts = res.data.filter(product => product.food_name.includes(food_name));
-//         setProducts(filteredProducts);
-//       })
-//       .catch((err) => {
-//         console.log("Error getting products", err);
-//       });
-//   }, [food_name]); // Re-run the effect whenever the food_name prop changes
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3000/products?search=${searchTerm}`);
+      onSearch(response.data);
+    } catch (error) {
+      console.error('Error fetching data: ', error);
+    }
+  };
 
-//   return (
-//     <div className="mt-4">
-//       <h2 className="text-2xl font-bold mb-2">Products matching:</h2>
-//       <ul>
-//         {products.map((product) => (
-//           <li key={product.id}>{product.food_name}</li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
+  return (
+    <div className="flex items-center justify-center mt-4">
+      <input
+        type="text"
+        placeholder="Search food items by name..."
+        className="border border-gray-300 rounded-l py-2 px-4 focus:outline-none focus:ring focus:border-blue-300 w-64"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-6 rounded-r focus:outline-none focus:ring focus:border-blue-300"
+        onClick={handleSearch}
+      >
+        Search
+      </button>
+    </div>
+  );
+};
 
-// export default ProductsByName;
+SearchBar.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+};
+
+export default SearchBar;
