@@ -1,6 +1,7 @@
+    
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import video from "../assets/video/contact.mp4"
+import video from "../assets/video/contact.mp4";
 
 function Contact() {
     return (
@@ -12,7 +13,7 @@ function Contact() {
                         <h1 className="text-4xl font-bold text-teal-700 mb-8">Contact Us</h1>
                         <div className="flex flex-col md:flex-row mb-8">
                             <div className="w-full md:w-1/2 pr-4">
-                                <video width="100%" controls autoPlay loop>
+                                <video className="w-full h-auto" controls autoPlay loop>
                                     <source src={video} type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
@@ -20,7 +21,7 @@ function Contact() {
                             <ContactInfo />
                         </div>
                         <ContactForm />
-                        <div className="bg-gray-200 p-4 text-gray-700 text-center">
+                        <div className="bg-gray-200 p-4 text-gray-700 text-center rounded-lg">
                             Enxhi Kaci, Uesli Laska, Katerina Taci
                         </div>
                     </div>
@@ -40,13 +41,13 @@ function ContactInfo() {
                 </p>
             </div>
             <div className="text-lg text-gray-700 mb-4">
-                <p>
+                <p className="mb-2">
                     <strong>Email:</strong> contact@meshijeapp.com
                 </p>
-                <p>
+                <p className="mb-2">
                     <strong>Phone:</strong> +355 456-7890
                 </p>
-                <p>
+                <p className="mb-2">
                     <strong>Address:</strong> Rruga Sulejman Delvina, Zayed Business Center, Tirane, Albania
                 </p>
             </div>
@@ -61,16 +62,14 @@ function ContactForm() {
                 You can also use the contact form below to send us a message:
             </p>
             <form>
-                <form>
-      
-                    <iframe
+                <iframe
                     title="Google Forms Survey"
                     src="https://docs.google.com/forms/d/e/1FAIpQLScPeQaz6R3Lw3Q77QMy7cngqKUnCyOhmIhgIxf9Z5P69yqvxg/viewform?embedded=true"
                     width="100%"
-                    height="2533" // You can adjust the height as needed
+                    height="800" // You can adjust the height as needed
                     frameBorder="0"
+                    className="border rounded-lg"
                 ></iframe>
-                </form>
             </form>
         </div>
     );

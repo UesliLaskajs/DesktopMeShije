@@ -24,6 +24,10 @@ const ProductSchema=new mongoose.Schema({
     price:{
         type:Number,
         required:[true,"Add a Number"]
+    },
+    saved:{
+        type:Boolean,    
+        default:false
     }
 })
 

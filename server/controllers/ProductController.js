@@ -1,4 +1,33 @@
 const Product = require("../models/ProductModel")
+const User = require("../models/UserModel");
+
+module.exports.saveFood = async (req, res) => {
+    const { userId, foodId } = req.params;
+  
+    try {
+      const user = await User.findById(userId);
+      const foodItem = await Product.findById(foodId);
+  
+      if (!user || !foodItem) {
+        return res.status(404).json({ error: "User or Food not found." });
+      }
+  
+      // Check if the food item is already saved by the user
+      if (user.savedFoods.includes(foodItem._id)) {
+        return res.status(400).json({ error: "Food already saved." });
+      }
+  
+      // Save the food item for the user
+      user.savedFoods.push(foodItem._id);
+      await user.save();
+  
+      res.json({ message: "Food saved successfully." });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  };
+
 module.exports.getAllProducts = (req, res) => {
     const { search } = req.query;
     let query = {};

@@ -5,7 +5,6 @@ const cors = require("cors");
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const authRoute = require("./routes/AuthRoute");
-
 // Enable CORS for specific origin and methods
 app.use(
   cors({
@@ -14,6 +13,7 @@ app.use(
     credentials: true,
   })
 );
+
 
 app.use(cookieParser());
 app.use(express.json());

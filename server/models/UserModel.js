@@ -19,6 +19,12 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: new Date(),
     },
+    savedFoods: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Product'
+        }
+    ]
 });
 
 userSchema.pre("save", async function () {
